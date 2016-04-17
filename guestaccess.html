@@ -1,0 +1,25 @@
+
+<script type="text/javascript">
+    function func() {
+        var enteredtext = document.getElementById('enteredtext').value;
+        var xmlHttp = new XMLHttpRequest();
+        var theUrl = "https://graph.api.smartthings.com/api/smartapps/installations/6523946c-2930-4379-85e5-78264e7f4e50/switches/17863628-1687-4d60-8a2c-72cf218d6509/"+ enteredtext +"?access_token=28e1fbb8-da1c-44fb-afc8-55f65a3bb789";
+    	var xmlHttp = new XMLHttpRequest();
+    	xmlHttp.onreadystatechange = function() { 
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            callback(xmlHttp.responseText);
+    	}
+    	xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+    	xmlHttp.send(null);
+
+    	document.getElementById("textresponse").innerHTML = "Sending. Gate will unlock if password is correct...";
+    }
+</script>
+<h1 id="heading">Ankit's Guest Access</h1>
+<input type="text" id="enteredtext" placeholder="Enter Password"/>
+<input type="submit" value="submit" onclick="func();" />
+<p id="textresponse"></p>
+
+
+
+
